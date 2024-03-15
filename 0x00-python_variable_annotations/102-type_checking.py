@@ -2,7 +2,7 @@
 from typing import Tuple, Any, List
 
 def zoom_array(lst: Tuple[Any, ...], factor: int = 2) -> Tuple[Any, ...]:
-    """advanced duck typing using python"""
+    '''advanced duck typing using python'''
     zoomed_in = List[Any] = [
         item for item in lst
         for i in range(factor)
