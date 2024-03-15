@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """handle task 4"""
 a: int = 1,
 pi: float = 3.14

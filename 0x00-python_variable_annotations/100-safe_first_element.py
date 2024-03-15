@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """handles duck typing"""
 from typing import List, Optional, TypeVar
 T = TypeVar('T')

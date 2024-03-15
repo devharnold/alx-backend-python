@@ -1,8 +1,8 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 from typing import Tuple, Any, List
 
 def zoom_array(lst: Tuple[Any, ...], factor: int = 2) -> Tuple[Any, ...]:
-    """advanced duck typing"""
+    """advanced duck typing using python"""
     zoomed_in = List[Any] = [
         item for item in lst
         for i in range(factor)

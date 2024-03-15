@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """handles complex types"""
 from typing import Union, Tuple
 
