@@ -16,7 +16,14 @@ async def task_wait_n(n: int, max_delay: int) -> List[float]:
         max_delay: the maximum delay time taken
         wait_times: 
     '''
-    wait_times = await asyncio.gather(
-        *tuple(map(lambda _: task_wait_random(max_delay), range(n)))
-    )
-    return sorted(wait_times)
+    wait_times = asyncio.gather(*[task_wait_random(max_delay) for _ in range(n)])
+    return sorted(await wait_times)
+
+
+
+
+
+   # wait_times = await asyncio.gather(
+   #     *tuple(map(lambda _: task_wait_random(max_delay), range(n)))
+   # )
+   # return sorted(wait_times)
