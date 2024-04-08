@@ -4,6 +4,8 @@
 import unittest
 from parameterized import parameterized, parameterized_class
 from utils import access_nested_map
+from unittest.mock import Mock, patch
+from unittest.mock import MagicMock
 
 class TestAccessNestedMap(unittest.TestCase):
     """access nested map module"""
@@ -27,14 +29,4 @@ class TestAccessNestedMap(unittest.TestCase):
                 access_nested_map({"a": 1}, ["a", "b", "c"])
             self.assertEqual(e.exception.message, 'error message')
 
-
-
-
-
-
-
-        with self.assertRaises(KeyError):
-            access_nested_map(nested_map, ["a", "x", "z"])
-
-        with self.assertRaises(KeyError):
-            access_nested_map({"a": 1}, ["a", "b", "c"])
+class TestGetJson(unittest.TestCase):
