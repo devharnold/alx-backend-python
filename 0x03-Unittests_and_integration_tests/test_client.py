@@ -22,7 +22,6 @@ class TestGithubOrgClient(unittest.TestCase):
         self.assertEqual(g_org_client.org(), repo)
         mocked_fn.assert_called_once_with("https://api.github.com/orgs/{}".format(org))
     
-class TestGithubOrgClient(unittest.TestCase):
     #@mock.patch('GithubOrgClient._public_repos_url', new_callable=PropertyMock)
     def test_public_repos_url(self) -> str:
         """testing the `_public_repos_url` property"""
