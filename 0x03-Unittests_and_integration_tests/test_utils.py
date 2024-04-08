@@ -19,6 +19,19 @@ class TestAccessNestedMap(unittest.TestCase):
     """access nested map execution module"""
     def test_access_nested_map_execution(self, nested_map, path, expected_result):
         nested_map = {"a": {"b": {"c": 1}}}
+        try:
+            with self.assertRaises(KeyError):
+                access_nested_map(nested_map, ["a", "x", "z"])
+        except KeyError as e:
+            with self.assertRaises(KeyError):
+                access_nested_map({"a": 1}, ["a", "b", "c"])
+            self.assertEqual(e.exception.message, 'error message')
+
+
+
+
+
+
 
         with self.assertRaises(KeyError):
             access_nested_map(nested_map, ["a", "x", "z"])
