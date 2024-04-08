@@ -101,3 +101,14 @@ class TestGithubOrgClient(unittest.TestCase):
             self.assertEqual(GithubOrgClient("google".public_repos(), ["episodes.dart", "cpp-netlib"]))
             mock_public_repos_url.assert_called_once()
         mock_get_json.assert_called_once()
+
+
+    @parameterized.expand([
+        ({'license': {'key': ""}}, "", True),
+        ({'license': {'key': ""}}, "", False),
+    ])
+    def test_has_licese(self, repo: Dict, key: str, expected: bool) -> None:
+        """tests has_license"""
+        g_org_client = GithubOrgClient("google")
+        client_has_license = g_org_client.has_license(repo, key)
+        self.assertEqual(client_has_license, expected)
