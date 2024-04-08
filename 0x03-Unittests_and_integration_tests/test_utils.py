@@ -6,6 +6,10 @@ from parameterized import parameterized, parameterized_class
 from utils import access_nested_map, get_json
 from unittest.mock import Mock, patch
 from unittest.mock import MagicMock
+from typing import Dict, Tuple, Union
+
+
+from utils import (access_nested_map, get_json, memoize)
 
 class TestAccessNestedMap(unittest.TestCase):
     """access nested map module"""
@@ -35,7 +39,7 @@ class TestGetJson(unittest.TestCase):
         ("http://example.com", {"payload": True}),
         ("http://holberton.io", {"payload": False})
     ])
-    def test_get_json(self, test_url, test_payload, mock_get):
+    def test_get_json(self, test_url: str, test_payload: Dict, mock_get) -> None:
         mock_get.return_value = Mock()
         mock_get.return_value.json.return_value = test_payload
 
